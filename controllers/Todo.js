@@ -12,14 +12,11 @@
     res.send(todo);
 }
 
-    const getTodos = (req, res) => {
-  Todo.find((err, todos) => {
-    if (err) {
-      res.send(err);
-    }
-    res.json(todos);
-  });
-};
+    const getTodos = async(req, res) => {
+ const tododata = await Todo.find()
+    res.send(tododata);
+}
+    
 
 
 const updateTodo = async (req, res) => {

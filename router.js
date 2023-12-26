@@ -8,14 +8,11 @@ router.get("/", (req, res) => {
 const { getTodos, createTodo, updateTodo, deleteTodo } = require("./controllers/Todo");
 
 router.post("/todos", createTodo);
-router.get("/showdata", createTodo );
+router.get("/showdata", getTodos );
 
 router.put("/todos/:todoID", updateTodo);
 
 router.delete("/todos/:todoID", deleteTodo);
-
-
-
 
 
 
