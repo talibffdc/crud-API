@@ -35,11 +35,15 @@ const updateTodo = async (req, res) => {
   
 };
 
-const deleteTodo = (req, res) => {
-  Todo.deleteOne({ _id: req.params.todoID })
-    .then(() => res.json({ message: "Todo Deleted" }))
-    .catch((err) => res.send(err));
+const deleteTodo = async (req, res) => {
+  try {
+    await Todo.deleteOne({ _id: req.params.todoID });
+    res.json({ message: "Todo Deleted" });
+  } catch (err) {
+    res.send(err);
+  }
 };
+
 
 
 
