@@ -4,8 +4,10 @@
   
   const createTodo = async (req, res) => {
     const todo =  new Todo({
-      title: req.body.title,
-      description: req.body.description,
+      name: req.body.name,
+      salary: req.body.salary,
+      position: req.body.position,
+
     });
   
     await todo.save();
@@ -24,9 +26,9 @@ const updateTodo = async (req, res) => {
     { _id: req.params.todoID },
     {
       $set: {
-        title: req.body.title,
-        description: req.body.description,
-      
+        name: req.body.name,
+      salary: req.body.salary,
+      position: req.body.position,
       },
 
     }, {new:true})
